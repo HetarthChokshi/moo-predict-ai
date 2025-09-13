@@ -8,35 +8,61 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Farm-friendly color palette */
+    --background: 48 100% 97%;  /* Soft cream #fffaf0 */
+    --foreground: 210 15% 20%;  /* Dark slate */
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 210 15% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 210 15% 20%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Deep green primary */
+    --primary: 152 82% 12%;     /* Deep green #0f5132 */
+    --primary-foreground: 48 100% 97%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Warm orange secondary */
+    --secondary: 33 89% 63%;    /* Warm orange #f6a84a */
+    --secondary-foreground: 152 82% 12%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 152 25% 25%;      /* Darker green accent */
+    --accent-foreground: 48 100% 97%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 152 82% 12%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Custom farm theme tokens */
+    --farm-green: 152 82% 12%;
+    --farm-green-light: 152 45% 35%;
+    --farm-orange: 33 89% 63%;
+    --farm-orange-light: 33 89% 75%;
+    --farm-cream: 48 100% 97%;
+    --farm-slate: 210 15% 20%;
+    --farm-slate-light: 210 15% 40%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--farm-green)), hsl(var(--farm-green-light)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--farm-orange)), hsl(var(--farm-orange-light)));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(210 40% 98%));
+
+    /* Shadows */
+    --shadow-soft: 0 4px 12px -2px hsl(var(--farm-green) / 0.08);
+    --shadow-medium: 0 8px 25px -5px hsl(var(--farm-green) / 0.15);
+    --shadow-strong: 0 20px 40px -12px hsl(var(--farm-green) / 0.25);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,33 +82,42 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 210 15% 8%;
+    --foreground: 48 100% 97%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 210 15% 10%;
+    --card-foreground: 48 100% 97%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 210 15% 10%;
+    --popover-foreground: 48 100% 97%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 152 45% 35%;
+    --primary-foreground: 48 100% 97%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 33 89% 63%;
+    --secondary-foreground: 210 15% 8%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 210 15% 15%;
+    --muted-foreground: 210 15% 60%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 152 25% 25%;
+    --accent-foreground: 48 100% 97%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 48 100% 97%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 210 15% 15%;
+    --input: 210 15% 15%;
+    --ring: 152 45% 35%;
+
+    /* Dark mode farm tokens */
+    --farm-green: 152 45% 35%;
+    --farm-green-light: 152 45% 45%;
+    --farm-orange: 33 89% 63%;
+    --farm-orange-light: 33 89% 75%;
+    --farm-cream: 48 100% 97%;
+    --farm-slate: 210 15% 85%;
+    --farm-slate-light: 210 15% 70%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -100,6 +135,42 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+@layer components {
+  /* Farm-themed utility classes */
+  .farm-card {
+    @apply bg-white rounded-xl shadow-[var(--shadow-soft)] border border-gray-100 p-6 transition-all duration-300 hover:shadow-[var(--shadow-medium)];
+  }
+
+  .farm-gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .farm-gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+
+  .farm-button-primary {
+    @apply bg-[hsl(var(--farm-green))] hover:bg-[hsl(var(--farm-green-light))] text-[hsl(var(--farm-cream))] font-medium px-6 py-3 rounded-lg transition-all duration-300 shadow-sm hover:shadow-md;
+  }
+
+  .farm-button-secondary {
+    @apply bg-[hsl(var(--farm-orange))] hover:bg-[hsl(var(--farm-orange-light))] text-[hsl(var(--farm-slate))] font-medium px-6 py-3 rounded-lg transition-all duration-300 shadow-sm hover:shadow-md;
+  }
+
+  /* Animation classes */
+  .animate-slide-in {
+    @apply transition-transform duration-300 ease-out;
+  }
+
+  .animate-fade-in {
+    @apply transition-opacity duration-300 ease-out;
+  }
+
+  .hover-lift {
+    @apply transition-transform duration-200 hover:-translate-y-1;
   }
 }

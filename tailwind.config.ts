@@ -57,6 +57,16 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Farm-specific colors
+        farm: {
+          green: "hsl(var(--farm-green))",
+          "green-light": "hsl(var(--farm-green-light))",
+          orange: "hsl(var(--farm-orange))",
+          "orange-light": "hsl(var(--farm-orange-light))",
+          cream: "hsl(var(--farm-cream))",
+          slate: "hsl(var(--farm-slate))",
+          "slate-light": "hsl(var(--farm-slate-light))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",

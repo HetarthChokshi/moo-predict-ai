@@ -1,73 +1,219 @@
-# Welcome to your Lovable project
+# FarmAI - Cattle Milk Yield & Health Prediction Platform
 
-## Project info
+A modern, AI-powered cattle management platform built with React, TypeScript, and Redux Toolkit. This application provides farmers with intelligent insights into milk yield predictions and animal health monitoring.
 
-**URL**: https://lovable.dev/projects/d56fbfb3-1e4a-41e4-957b-abbe68960015
+## 🌟 Features
 
-## How can I edit this code?
+### Core Functionality
+- **Dashboard**: Comprehensive farm overview with key metrics and trends
+- **Milk Yield Prediction**: AI-powered predictions based on feed, activity, and environmental data
+- **Animal Management**: Individual cattle profiles with health tracking
+- **Disease Detection**: Early warning system for health issues
+- **Feed & Nutrition**: Feed profile management and optimization
+- **Reports & Analytics**: Data export capabilities (CSV, Excel, PDF)
 
-There are several ways of editing your application.
+### Technology Stack
+- **Frontend**: React 18, TypeScript, Vite
+- **State Management**: Redux Toolkit with RTK Query
+- **UI Components**: Ant Design v5 with custom styling
+- **Styling**: Tailwind CSS with custom farm theme
+- **Animations**: Framer Motion for smooth interactions
+- **Charts**: Recharts for data visualization
+- **API Client**: Axios with TypeScript integration
 
-**Use Lovable**
+## 🚀 Getting Started
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/d56fbfb3-1e4a-41e4-957b-abbe68960015) and start prompting.
+### Prerequisites
+- Node.js 18+ and npm
+- Modern web browser
 
-Changes made via Lovable will be committed automatically to this repo.
+### Installation
 
-**Use your preferred IDE**
+1. **Clone the repository**
+   ```bash
+   git clone <YOUR_GIT_URL>
+   cd <YOUR_PROJECT_NAME>
+   ```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+3. **Start development server**
+   ```bash
+   npm run dev
+   ```
 
-Follow these steps:
+4. **Open in browser**
+   ```
+   http://localhost:8080
+   ```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+### Environment Variables
+Create a `.env` file in the root directory:
+```env
+VITE_API_BASE_URL=http://localhost:3001/api
 ```
 
-**Edit a file directly in GitHub**
+## 🏗️ Project Structure
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```
+src/
+├── components/           # Reusable UI components
+│   ├── dashboard/       # Dashboard-specific components
+│   ├── layout/          # Layout components (Sidebar, Topbar)
+│   └── predictions/     # Prediction-related components
+├── hooks/               # Custom React hooks
+├── pages/               # Page components
+├── services/            # API services and clients
+├── store/               # Redux store and slices
+│   └── slices/         # Redux slices for different features
+├── types/               # TypeScript type definitions
+├── utils/               # Utility functions
+└── index.css           # Global styles and design system
+```
 
-**Use GitHub Codespaces**
+## 📡 API Integration
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+The frontend expects a backend API with the following endpoints:
 
-## What technologies are used for this project?
+### Animals
+- `GET /api/animals` - List all animals
+- `GET /api/animals/:id` - Get animal details
+- `POST /api/animals` - Create new animal
+- `PUT /api/animals/:id` - Update animal
+- `DELETE /api/animals/:id` - Delete animal
 
-This project is built with:
+### Predictions
+- `POST /api/predict/milk` - Predict milk yield
+- `POST /api/predict/disease` - Predict disease risk
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Health & Monitoring
+- `GET /api/diseases/alerts` - Get active health alerts
+- `PATCH /api/diseases/:id` - Update disease status
 
-## How can I deploy this project?
+### Data & Reports
+- `GET /api/dashboard/stats` - Dashboard statistics
+- `POST /api/reports/export` - Export data (CSV/PDF)
 
-Simply open [Lovable](https://lovable.dev/projects/d56fbfb3-1e4a-41e4-957b-abbe68960015) and click on Share -> Publish.
+### Authentication
+- `POST /api/auth/login` - User login
+- `POST /api/auth/register` - User registration
+- `POST /api/auth/refresh` - Refresh JWT token
 
-## Can I connect a custom domain to my Lovable project?
+## 🎨 Design System
 
-Yes, you can!
+The application uses a custom farm-themed design system:
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Color Palette
+- **Primary Green**: `hsl(152, 82%, 12%)` - Main brand color
+- **Orange Accent**: `hsl(33, 89%, 63%)` - Secondary actions
+- **Cream Background**: `hsl(48, 100%, 97%)` - Soft backgrounds
+- **Slate Text**: `hsl(210, 15%, 20%)` - Primary text
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+### Components
+All components follow the design system with:
+- Semantic color tokens
+- Consistent spacing (Tailwind utilities)
+- Rounded corners and soft shadows
+- Smooth animations and transitions
+
+## 🔧 Development
+
+### Available Scripts
+```bash
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run preview      # Preview production build
+npm run lint         # Run ESLint
+```
+
+### Code Style
+- TypeScript strict mode enabled
+- ESLint configuration for React/TypeScript
+- Consistent component architecture
+- Redux Toolkit best practices
+
+## 📊 State Management
+
+The application uses Redux Toolkit with the following slices:
+- `animalsSlice` - Animal data and CRUD operations
+- `predictionsSlice` - ML predictions and dashboard stats
+- `diseasesSlice` - Health alerts and disease monitoring
+- `feedSlice` - Feed profiles and nutrition data
+- `uiSlice` - UI state (sidebar, modals, notifications)
+- `authSlice` - Authentication state
+
+## 🔄 Data Flow
+
+1. **User Input** → Form components (Ant Design)
+2. **Actions** → Redux actions via `createAsyncThunk`
+3. **API Calls** → Axios service layer
+4. **State Updates** → Redux slices update store
+5. **UI Updates** → Components re-render via `useSelector`
+
+## 📱 Responsive Design
+
+The application is fully responsive with:
+- Mobile-first approach
+- Collapsible sidebar for smaller screens
+- Adaptive grid layouts
+- Touch-friendly interactions
+
+## 🧪 Mock Data
+
+For development without a backend, the application includes:
+- Mock API responses in Redux slices
+- Sample data for charts and components
+- Simulated prediction results
+
+## 🚀 Deployment
+
+### Production Build
+```bash
+npm run build
+```
+
+The build artifacts will be stored in the `dist/` directory.
+
+### Environment Setup
+- Configure `VITE_API_BASE_URL` for your backend
+- Ensure CORS is configured on your API server
+- Set up authentication flow with your backend
+
+## 🔐 Security Considerations
+
+- JWT tokens stored in localStorage (consider httpOnly cookies for production)
+- API requests include authentication headers
+- Form validation on both client and server side
+- CORS configuration required for API access
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🆘 Support
+
+For support and questions:
+- Check the documentation
+- Create an issue on GitHub
+- Contact the development team
+
+## 🔮 Future Enhancements
+
+- Real-time IoT sensor integration
+- Advanced ML model training interface
+- Mobile app companion
+- Automated feed scheduling
+- Weather API integration
+- Multi-farm management
+- Advanced reporting dashboard
