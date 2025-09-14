@@ -40,7 +40,7 @@ const LandingPage: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const heroImages = [
-    'https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=1200&h=600&fit=crop',
+    'https://github.com/user-attachments/assets/15ac602c-d2f9-47d3-b772-94a1e56183a1',
     'https://images.unsplash.com/photo-1582560469781-1965b9af903d?w=1200&h=600&fit=crop',
     'https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=1200&h=600&fit=crop'
   ];

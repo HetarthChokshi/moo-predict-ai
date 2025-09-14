@@ -9,6 +9,7 @@ import { Dashboard } from '../dashboard/Dashboard';
 import { MilkPredictionForm } from '../predictions/MilkPredictionForm';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
+import DiseaseDetectionForm from '../predictions/DiseaseDetectionForm';
 
 // Ant Design theme configuration
 const antdTheme = {
@@ -56,15 +57,7 @@ const MainContent: React.FC = () => {
           </div>
         );
       case 'health':
-        return (
-          <div className="p-6">
-            <h1 className="text-3xl font-bold text-farm-slate">Disease Detection</h1>
-            <p className="text-farm-slate-light mt-2">AI-powered health monitoring and disease prediction</p>
-            <div className="mt-8 p-8 bg-white rounded-xl text-center">
-              <p className="text-farm-slate-light">Disease detection page coming soon...</p>
-            </div>
-          </div>
-        );
+        return <DiseaseDetectionForm />;
       case 'alerts':
         return (
           <div className="p-6">
