@@ -1,9 +1,20 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Layout, BarChart3, Heart, Activity, AlertTriangle, Wheat, FileText, Settings, Menu, X } from 'lucide-react';
-import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '../../store';
-import { toggleSidebar, setCurrentPage } from '../../store/slices/uiSlice';
+import React from "react";
+import { motion } from "framer-motion";
+import {
+  Layout,
+  BarChart3,
+  Heart,
+  Activity,
+  AlertTriangle,
+  Wheat,
+  FileText,
+  Settings,
+  Menu,
+  X,
+} from "lucide-react";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "../../store";
+import { toggleSidebar, setCurrentPage } from "../../store/slices/uiSlice";
 
 interface MenuItem {
   id: string;
@@ -13,43 +24,45 @@ interface MenuItem {
 }
 
 const menuItems: MenuItem[] = [
-  { id: 'dashboard', label: 'Dashboard', icon: Layout },
-  { id: 'animals', label: 'Animals', icon: Heart },
-  { id: 'predictions', label: 'Milk Prediction', icon: BarChart3 },
-  { id: 'health', label: 'Disease Detection', icon: Activity },
-  { id: 'alerts', label: 'Health Alerts', icon: AlertTriangle, badge: 3 },
-  { id: 'feed', label: 'Feed & Nutrition', icon: Wheat },
-  { id: 'reports', label: 'Reports', icon: FileText },
-  { id: 'settings', label: 'Settings', icon: Settings },
+  { id: "dashboard", label: "Dashboard", icon: Layout },
+  { id: "animals", label: "Animals", icon: Heart },
+  { id: "predictions", label: "Milk Prediction", icon: BarChart3 },
+  { id: "health", label: "Disease Detection", icon: Activity },
+  { id: "alerts", label: "Health Alerts", icon: AlertTriangle, badge: 3 },
+  { id: "feed", label: "Feed & Nutrition", icon: Wheat },
+  { id: "reports", label: "Reports", icon: FileText },
+  { id: "settings", label: "Settings", icon: Settings },
 ];
 
 export const Sidebar: React.FC = () => {
   const dispatch = useDispatch();
-  const { sidebarCollapsed, currentPage } = useSelector((state: RootState) => state.ui);
+  const { sidebarCollapsed, currentPage } = useSelector(
+    (state: RootState) => state.ui
+  );
 
   const handleMenuClick = (pageId: string) => {
     dispatch(setCurrentPage(pageId));
   };
 
   const sidebarVariants = {
-    expanded: { 
+    expanded: {
       width: 280,
-      transition: { duration: 0.3 }
+      transition: { duration: 0.3 },
     },
-    collapsed: { 
+    collapsed: {
       width: 80,
-      transition: { duration: 0.3 }
-    }
+      transition: { duration: 0.3 },
+    },
   };
 
   const menuItemVariants = {
-    hover: { 
+    hover: {
       scale: 1.02,
-      transition: { duration: 0.2 }
+      transition: { duration: 0.2 },
     },
-    tap: { 
-      scale: 0.98 
-    }
+    tap: {
+      scale: 0.98,
+    },
   };
 
   return (
@@ -68,20 +81,29 @@ export const Sidebar: React.FC = () => {
               exit={{ opacity: 0 }}
               className="flex items-center space-x-3"
             >
-              <div className="w-8 h-8 bg-farm-green rounded-lg flex items-center justify-center">
-                <Heart className="w-5 h-5 text-white" />
+              <div className="w-8 h-8 bg-farm-green rounded-lg flex items-center justify-center overflow-hidden">
+                <img
+                  src="logo.jpeg"
+                  alt="logo"
+                  className="w-full h-full object-contain"
+                />
               </div>
+
               <div>
                 <h1 className="text-lg font-bold text-farm-slate">FarmAI</h1>
-                <p className="text-xs text-farm-slate-light">Cattle Management</p>
+                <p className="text-xs text-farm-slate-light">
+                  Cattle Management
+                </p>
               </div>
             </motion.div>
           )}
-          
+
           <button
             onClick={() => dispatch(toggleSidebar())}
             className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
-            aria-label={sidebarCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+            aria-label={
+              sidebarCollapsed ? "Expand sidebar" : "Collapse sidebar"
+            }
           >
             {sidebarCollapsed ? (
               <Menu className="w-5 h-5 text-farm-slate" />
@@ -97,7 +119,7 @@ export const Sidebar: React.FC = () => {
         {menuItems.map((item) => {
           const Icon = item.icon;
           const isActive = currentPage === item.id;
-          
+
           return (
             <motion.button
               key={item.id}
@@ -108,17 +130,22 @@ export const Sidebar: React.FC = () => {
               className={`
                 w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-left
                 transition-all duration-200 group relative
-                ${isActive
-                  ? 'bg-farm-green text-white shadow-md'
-                  : 'text-farm-slate hover:bg-gray-50 hover:text-farm-green'
+                ${
+                  isActive
+                    ? "bg-farm-green text-white shadow-md"
+                    : "text-farm-slate hover:bg-gray-50 hover:text-farm-green"
                 }
               `}
               aria-label={item.label}
             >
-              <Icon 
-                className={`w-5 h-5 ${isActive ? 'text-white' : 'text-farm-slate-light group-hover:text-farm-green'}`} 
+              <Icon
+                className={`w-5 h-5 ${
+                  isActive
+                    ? "text-white"
+                    : "text-farm-slate-light group-hover:text-farm-green"
+                }`}
               />
-              
+
               {!sidebarCollapsed && (
                 <motion.span
                   initial={{ opacity: 0 }}
@@ -129,7 +156,7 @@ export const Sidebar: React.FC = () => {
                   {item.label}
                 </motion.span>
               )}
-              
+
               {item.badge && !sidebarCollapsed && (
                 <motion.span
                   initial={{ scale: 0 }}
